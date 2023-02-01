@@ -182,6 +182,44 @@ def saludar(saludar):
     </div>
 ```
 
+## herencia de pagina o poner uno de raíz
+
+### en python
+```py
+```
+
+### en html base
+```html
+<div>
+    <h1>Sección Navegación</h1>
+    <a href="/blog">Blog</a>
+    <a href="/perfil">Perfil</a>
+  </div>
+
+  {% block content %}
+
+
+  {% endblock%}
+
+  <footer>
+    <h3>Esto es el footer</h3>
+  </footer>
+```
+### en html que hereda 
+```html 
+<!-- con esto hereda  -->
+{% extends 'base.html' %}
+
+<!-- inicia el bloque -->
+{% block content %}
+<!-- Aqui personalizas tu pagina heredada  -->
+<h1>hola este es mi perfil</h1>
+
+
+{% endblock %}
+<!-- fin del bloque heredado -->
+
+```
 
 
 

@@ -36,5 +36,15 @@ def listaPersona():
 def saludar(saludar):
   return render_template('condicion.html', saludo = saludar)
 
+# herencias 
+@app.route('/perfil')
+def perfil():
+  return render_template('perfil.html')
+
+@app.route('/blog')
+def blog():
+  return render_template('blog.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
