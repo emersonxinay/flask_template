@@ -60,6 +60,10 @@ if __name__ == '__main__':
 ```bash 
 flask run
 ```
+o 
+```bash
+python3 index.py
+```
 ### pero para que no estes apagando y volver a encender el servidor vamos hacer lo siguiente.
 
 ```bash 
@@ -72,10 +76,14 @@ export FLASK_ENV=development
 
 
 # Para utilizar template 
-<h4> primero creamos una carpeta especifica que se llame <strong> templates </strong> y debe estar al mismo nivel de la raiz y dentro de esta carpeta crear un archivo html <strong> mostrar.html </strong> </h4>
+<h4> primero creamos una carpeta especifica que se llame <strong> templates </strong> y debe estar al mismo nivel de la raiz y dentro de esta carpeta crear un archivo html <strong> index.html </strong> </h4>
 
 
 <h4> una vez modificado todo el html, ahora importamos desde el archivo principal<code> app.py </code> y alli agregamos lo siguiente o parecido. </h4>
+
+<h4> -- crea una nueva carpeta static y por dentro pones una structura basica de carpetas y archivos basicos de html, css, img y js.</h4> 
+
+
 
 ```py
 # con rederización de otro archivo html

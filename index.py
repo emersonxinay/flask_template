@@ -10,7 +10,10 @@ def index():
 # ruta hacia otro lado ejm: login.html
 @app.route('/login')
 def login():
-  return render_template('login.html')
+  nombre = "emerson"
+  edad = 20
+  
+  return render_template('login.html', name = nombre, age = edad)
 
 if __name__ == '__main__':
     app.run(debug=True)
