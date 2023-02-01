@@ -23,6 +23,14 @@ def diccionario():
   
   return render_template('login.html', diccionario = dic)
 
+# bucles para listas personas
+@app.route('/listaPersona')
+def listaPersona():
+  # lista de nombres
+  personas = ['martin', 'emerson', 'juan', 'maria', 'sofia', 'lisset', 'pia']
+  # se conecta con el archivo bucle.html y la variable que usara es per
+  return render_template('bucle.html', per = personas)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

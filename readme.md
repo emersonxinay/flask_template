@@ -124,7 +124,7 @@ def pagina_error(error):
 <h2>mas detalle: {{error}} </h2>
 ```
 
-## Para evaluar ruta con decicíon 
+## Para evaluar ruta con decicíon if
 ```py
 # ruta evaluando usuario y contraseña
 
@@ -141,6 +141,28 @@ def evaluando(usuario, password):
         return "Datos incorrectos"
     
 ```
+
+## para mostrar los bucles en html desde index.py
+
+```py 
+# bucles para listas personas
+@app.route('/listaPersona')
+def listaPersona():
+  # lista de nombres
+  personas = ['martin', 'emerson', 'juan', 'maria', 'sofia', 'lisset', 'pia']
+  # se conecta con el archivo bucle.html y la variable que usara es per
+  return render_template('bucle.html', per = personas)
+
+```
+### y en el archivo bucle.html
+```html
+<ul>
+      {% for p in per %}
+      <li>{{p}}</li>
+      {% endfor%}
+</ul>
+```
+
 
 
 
