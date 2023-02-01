@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -44,6 +44,21 @@ def perfil():
 @app.route('/blog')
 def blog():
   return render_template('blog.html')
+
+# rutas para formularios 
+@app.route('/formulario')
+def formulario():
+  
+  return render_template('formulario.html')
+
+# el bienenido despues de hacer click en boton de enviar de formulario
+@app.route('/bienvenido')
+def bienvenido():
+  # para usar con get, para obtener datos desde consola
+  name = request.args.get('name')
+  correo = request.args.get('correo')
+  print(name, correo)
+  return render_template('bienvenido.html')
 
 
 if __name__ == '__main__':

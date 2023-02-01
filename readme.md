@@ -242,6 +242,57 @@ def saludar(saludar):
 <title>{% block title %} inicio {%endblock%}</title>
 ```
 
+### tips para generar html desde el h1 al h3, y otros. 
+h$[title=items$]{Titulo $}*3 
+
+## Formularios 
+### en archivo index.py
+```py 
+# rutas para formularios 
+@app.route('/formulario')
+def formulario():
+  
+  return render_template('formulario.html')
+
+# el bienenido despues de hacer click en boton de enviar de formulario
+@app.route('/bienvenido')
+def bienvenido():
+  # para usar con get, para obtener datos desde consola
+  name = request.args.get('name')
+  correo = request.args.get('correo')
+  print(name, correo)
+  return render_template('bienvenido.html')
+
+```
+
+### y en achivos html de formulario y bienvenido
+#### en formulario.html
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Formulario de Registros</h1>
+<!-- cuando hacemos click se ira a la pagina bienvenido.hmtl  -->
+<form action="{{url_for('bienvenido')}}" method="GET">
+  Nombre: <input type="text" name="name">
+  <br>
+  correo: <input type="text" name="correo">
+  <br>
+  <input type="submit" value="Enviar Datos">
+  <br>
+
+</form>
+{% endblock%}
+
+```
+
+#### en archivo bienvenido.html
+```html
+{% extends 'base.html' %} 
+{% block content %}
+<h1>registro exitoso</h1>
+{% endblock%}
+```
 
 
 
