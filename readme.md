@@ -220,7 +220,27 @@ def saludar(saludar):
 <!-- fin del bloque heredado -->
 
 ```
+## para que sea mas dinamico las url y no dependa de si mismo sino que herede
+```html
+<div>
+    <h1>Sección Navegación</h1>
+    <a href="{{url_for('blog')}}">Blog</a>
+    <a href="{{url_for('perfil')}}">Perfil</a>
+  </div>
+```
 
+
+
+## Si queremos que los titulos cambien su nombre por pagina 
+```html
+<!-- en el archivo base -->
+<title>{% block title %} inicio {%endblock%}</title>
+
+```
+```html
+<!-- en el archivo heredado -->
+<title>{% block title %} inicio {%endblock%}</title>
+```
 
 
 
