@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Formulario de Registros</h1>
+<!-- cuando hacemos click se ira a la pagina bienvenido.hmtl  -->
+<form action="{{url_for('bienvenido')}}" method="GET">
+  Nombre: <input type="text" name="name">
+  <br>
+  correo: <input type="text" name="correo">
+  <br>
+  <input type="submit" value="Enviar Datos">
+  <br>
+
+</form>
+{% endblock%}
