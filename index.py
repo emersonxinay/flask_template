@@ -31,6 +31,10 @@ def listaPersona():
   # se conecta con el archivo bucle.html y la variable que usara es per
   return render_template('bucle.html', per = personas)
 
+# decicón con if
+@app.route('/saludo/<saludar>')
+def saludar(saludar):
+  return render_template('condicion.html', saludo = saludar)
 
 if __name__ == '__main__':
     app.run(debug=True)

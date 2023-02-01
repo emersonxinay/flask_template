@@ -124,7 +124,7 @@ def pagina_error(error):
 <h2>mas detalle: {{error}} </h2>
 ```
 
-## Para evaluar ruta con decicíon if
+## Para evaluar ruta con decicíon desde index.py
 ```py
 # ruta evaluando usuario y contraseña
 
@@ -142,7 +142,7 @@ def evaluando(usuario, password):
     
 ```
 
-## para mostrar los bucles en html desde index.py
+## para mostrar  bucle for en html desde index.py
 
 ```py 
 # bucles para listas personas
@@ -161,6 +161,25 @@ def listaPersona():
       <li>{{p}}</li>
       {% endfor%}
 </ul>
+```
+
+## condición if desde index.py
+```py
+@app.route('/saludo/<saludar>')
+def saludar(saludar):
+  return render_template('condicion.html', saludo = saludar)
+```
+### y ahora if desde condición.html
+```html
+<div>
+      <h1>iniciando {{saludo}}</h1>
+      {% if saludo == 'hola'%}
+      <h2>Hola como estas</h2>
+      {% else %}
+      <h2>bueno, chauuu!</h2>
+
+      {%endif%}
+    </div>
 ```
 
 
