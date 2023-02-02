@@ -313,9 +313,9 @@ def paginaNoEncontrada(e):
 {% endblock%}
 ```
 
-## validación de datos del formulario, desde formulario.html al enviar desde el boton
+## validación de datos del formulario, desde index.py al enviar desde el boton
 
-```html
+```py
 @app.route('/bienvenido')
 def bienvenido():
     # simulando base de datos
@@ -331,6 +331,70 @@ def bienvenido():
     else:
         return '<h1> Datos Incorrectos </h1>'
 ```
+
+# FlaskForm 
+<a href="https://flask-wtf.readthedocs.io/en/0.15.x/install/"> doc Instalación FlaskForm </a>
+
+```bash
+pip install -U Flask-WTF
+```
+
+## desde un nuevo archivo inicio.py 
+```py
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from flask import Flask, render_template
+app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'miclavesecreta'
+
+
+class Formulario(FlaskForm):
+    nombre = StringField('nombre')
+    estado = SubmitField('estado')
+
+
+@app.route('/', methods=['GET', 'POST'])
+def inicio():
+    nombre = ''
+    estado = False
+    formulario = Formulario()
+    if formulario.validate_on_submit():
+        estado = True
+        nombre = formulario.nombre.data
+        formulario.nombre.data = ''
+
+    return render_template('inicio.html', estado=estado, nombre=nombre, formulario=formulario)
+
+
+if __name__ == '__main__':
+  # para poder ver los errores si los hubiera
+    app.run(debug=True)
+
+```
+
+## desde templates/inicio.html
+```html 
+{% if estado %}
+
+<p>hola bienvenido {{nombre}}</p>
+
+{% else %}
+
+<p>No estas en mi base de datos registrate</p>
+
+{%endif%}
+
+<form method="POST" action="">
+  {{formulario.hidden_tag()}} 
+  {{formulario.nombre.label}} {{formulario.nombre}}
+  {{formulario.estado}}
+</form>
+
+```
+
+
+
 
 
 
