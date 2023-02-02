@@ -294,6 +294,24 @@ def bienvenido():
 {% endblock%}
 ```
 
+## pagina para errores al buscar en la pestaña del navegador
+### en el index.py
+```py
+@app.errorhandler(404)
+def paginaNoEncontrada(e):
+
+    return render_template('404.html'), 404
+
+```
+
+### en el 404.html 
+```html
+{% extends 'base.html' %} {% block content %}
+<h1>pagina no econtrada!</h1>
+<p>revisa la url</p>
+
+{% endblock%}
+```
 
 
 
