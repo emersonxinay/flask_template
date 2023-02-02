@@ -69,11 +69,18 @@ def formulario():
 
 @app.route('/bienvenido')
 def bienvenido():
-    # para usar con get, para obtener datos desde consola
+    # simulando base de datos
+    user = "emerson"
+    user_correo = "xinay@gmail.com"
+    # para usar con get, para obtener datos desde consola cuando hacen click en submit del formulario
     name = request.args.get('name')
     correo = request.args.get('correo')
-    print(name, correo)
-    return render_template('bienvenido.html')
+
+    # tomando decición
+    if name == user and correo == user_correo:
+        return render_template('bienvenido.html')
+    else:
+        return '<h1> Datos Incorrectos </h1>'
 
 
 # pagina apara errores al buscar en la pestaña

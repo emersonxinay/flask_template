@@ -313,6 +313,25 @@ def paginaNoEncontrada(e):
 {% endblock%}
 ```
 
+## validación de datos del formulario, desde formulario.html al enviar desde el boton
+
+```html
+@app.route('/bienvenido')
+def bienvenido():
+    # simulando base de datos
+    user = "emerson"
+    user_correo = "xinay@gmail.com"
+    # para usar con get, para obtener datos desde consola cuando hacen click en submit del formulario
+    name = request.args.get('name')
+    correo = request.args.get('correo')
+
+    # tomando decición
+    if name == user and correo == user_correo:
+        return render_template('bienvenido.html')
+    else:
+        return '<h1> Datos Incorrectos </h1>'
+```
+
 
 
 
